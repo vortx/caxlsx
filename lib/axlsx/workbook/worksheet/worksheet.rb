@@ -648,8 +648,10 @@ module Axlsx
        range.each do |index|
         unless (item = collection[index]).nil?
           item.outline_level = level
-          item.hidden = collapsed
-          item.collapsed = 1 if collapsed 
+         if collapsed
+            item.hidden = true
+          end
+          item.collapsed = 1
         end
         sheet_view.show_outline_symbols = true
       end
