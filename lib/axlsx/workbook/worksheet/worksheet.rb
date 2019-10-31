@@ -649,6 +649,7 @@ module Axlsx
         unless (item = collection[index]).nil?
           item.outline_level = level
           item.hidden = collapsed
+          item.collapsed = 1 if collapsed 
         end
         sheet_view.show_outline_symbols = true
       end
