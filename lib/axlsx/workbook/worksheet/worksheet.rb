@@ -647,11 +647,11 @@ module Axlsx
     def outline(collection, range, level = 1, collapsed = true)
        range.each do |index|
         unless (item = collection[index]).nil?
-          item.outline_level = level
-         if collapsed
-            item.hidden = true
+          if index != 0
+            item.outline_level = level
+            item.hidden = true if collapsed
           end
-          item.collapsed = 1
+          item.collapsed = 1 if collapsed
         end
         sheet_view.show_outline_symbols = true
       end
